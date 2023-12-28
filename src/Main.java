@@ -2,6 +2,7 @@ import adapter.Adapter;
 import adapter.MicroUSB;
 import adapter.TypeCCharger;
 import adapter.TypeCImp;
+import bridge.*;
 import facade.ShopKeeper;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -84,11 +85,31 @@ public class Main {
 
 //---------------------facade---------------------------
 
-        ShopKeeper shopKeeper = new ShopKeeper();
+//        ShopKeeper shopKeeper = new ShopKeeper();
+//
+//        shopKeeper.getIphoneInfo();
+//        shopKeeper.getSamsungInfo();
+//        shopKeeper.getBlackberryInfo();
 
-        shopKeeper.getIphoneInfo();
-        shopKeeper.getSamsungInfo();
-        shopKeeper.getBlackberryInfo();
+
+//---------------------bridge---------------------------
+
+        Platform macplatform = new MacPlatform();
+        Platform windowsplatform = new WindowsPlatform();
+
+        MediaPlayer windowsAdvancedMediaPlayer = new AdvancedMediaPlayer(windowsplatform);
+        MediaPlayer macAdvancedMediaPlayer = new AdvancedMediaPlayer(macplatform);
+
+        MediaPlayer windowsBasicMediaPlayer = new BasicMediaPlayer(windowsplatform);
+
+        macAdvancedMediaPlayer.playMedia("XYZ.mp3");
+
+        windowsAdvancedMediaPlayer.rewindMedia();
+
+        windowsBasicMediaPlayer.rewindMedia();
+
+
+
 
 
     }
