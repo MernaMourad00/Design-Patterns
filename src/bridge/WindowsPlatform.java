@@ -1,5 +1,6 @@
 package bridge;
 
+// Concrete Implementor: WindowsPlatform
 public class WindowsPlatform implements Platform{
     @Override
     public void playMedia(String media) {

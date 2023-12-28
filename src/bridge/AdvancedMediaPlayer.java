@@ -1,5 +1,6 @@
 package bridge;
 
+// Refined Abstraction
 public class AdvancedMediaPlayer extends MediaPlayer{
 
     public AdvancedMediaPlayer(Platform platform) {

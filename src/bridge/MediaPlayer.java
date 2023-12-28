@@ -1,5 +1,6 @@
 package bridge;
 
+// Abstraction
 public abstract class MediaPlayer {
     protected Platform platform;
 

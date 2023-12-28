@@ -1,5 +1,6 @@
 package bridge;
 
+//implementor
 public interface Platform {
 
     void playMedia(String media);

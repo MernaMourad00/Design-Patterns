@@ -1,5 +1,6 @@
 package bridge;
 
+// Concrete Implementor: MacPlatform
 public class MacPlatform implements Platform{
 
     @Override
