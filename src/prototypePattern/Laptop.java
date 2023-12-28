@@ -1,6 +1,7 @@
 package prototypePattern;
 
 public class Laptop extends Device {
+    private String keyboardType;
 
     public Laptop(String manufacturerName, Integer RAM, Integer screenSize, Integer price, Integer quantity, String keyboardType) {
         super(manufacturerName, RAM, screenSize, price, quantity);
@@ -8,11 +9,11 @@ public class Laptop extends Device {
     }
 
     @Override
-    public void displayCharactristics() {
+    public void displayCharacteristics() {
         System.out.println("keyboardtype=  "+keyboardType);
     }
 
-    private String keyboardType;
+
 
     public void setKeyboardType(String keyboardType) {
         this.keyboardType = keyboardType;

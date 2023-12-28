@@ -5,6 +5,8 @@ import adapter.TypeCImp;
 import bridge.*;
 import command.*;
 import facade.ShopKeeper;
+import prototypePattern.Device;
+import prototypePattern.Registry;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -19,11 +21,11 @@ public class Main {
 
 //------------------------prototype-------------------------------------
 
-//        Registry registry= new Registry();
-//        Device d = registry.getClone("tablet");
-//        d.displayCharactristics();
-//        Device d2 = registry.getClone("laptop");
-//        d2.displayCharactristics();
+        Registry registry= new Registry();
+        Device d = registry.getClone("tablet");
+        d.displayCharacteristics();
+        Device d2 = registry.getClone("laptop");
+        d2.displayCharacteristics();
 
 //------------------------builder-------------------------------------
 
@@ -110,25 +112,25 @@ public class Main {
 //        windowsBasicMediaPlayer.rewindMedia();
 
 //--------------------command----------------------------
-        HomeElectronics ac = new AirConditioner();
-        HomeElectronics lightSystem = new LightSystem();
-
-        Command acOnCommand = new OnCommand(ac);
-        Command lightOnCommand = new OnCommand(lightSystem);
-
-        Invoker invoker = new Invoker();
-
-        // Adding commands to the invoker
-        invoker.addCommand(acOnCommand);
-        invoker.addCommand(lightOnCommand);
-
-        // Executing single command at index 1
-        System.out.println("---Executing Single Command at Index 1---");
-        invoker.executeSingleCommand(1);
-
-        //executing all commands
-        System.out.println("-----executing all commands ------");
-        invoker.executeCommands();
+//        HomeElectronics ac = new AirConditioner();
+//        HomeElectronics lightSystem = new LightSystem();
+//
+//        Command acOnCommand = new OnCommand(ac);
+//        Command lightOnCommand = new OnCommand(lightSystem);
+//
+//        Invoker invoker = new Invoker();
+//
+//        // Adding commands to the invoker
+//        invoker.addCommand(acOnCommand);
+//        invoker.addCommand(lightOnCommand);
+//
+//        // Executing single command at index 1
+//        System.out.println("---Executing Single Command at Index 1---");
+//        invoker.executeSingleCommand(1);
+//
+//        //executing all commands
+//        System.out.println("-----executing all commands ------");
+//        invoker.executeCommands();
 
     }
 

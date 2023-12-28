@@ -19,7 +19,6 @@ public class Registry {
     }
 
     public Device getClone(String deviceType){
-        Device device=null;
         return registry.get(deviceType).clone();
     }
 }
