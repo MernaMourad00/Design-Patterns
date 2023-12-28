@@ -3,6 +3,7 @@ import adapter.MicroUSB;
 import adapter.TypeCCharger;
 import adapter.TypeCImp;
 import bridge.*;
+import command.*;
 import facade.ShopKeeper;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -94,25 +95,46 @@ public class Main {
 
 //---------------------bridge---------------------------
 
-        Platform macplatform = new MacPlatform();
-        Platform windowsplatform = new WindowsPlatform();
+//        Platform macplatform = new MacPlatform();
+//        Platform windowsplatform = new WindowsPlatform();
+//
+//        MediaPlayer windowsAdvancedMediaPlayer = new AdvancedMediaPlayer(windowsplatform);
+//        MediaPlayer macAdvancedMediaPlayer = new AdvancedMediaPlayer(macplatform);
+//
+//        MediaPlayer windowsBasicMediaPlayer = new BasicMediaPlayer(windowsplatform);
+//
+//        macAdvancedMediaPlayer.playMedia("XYZ.mp3");
+//
+//        windowsAdvancedMediaPlayer.rewindMedia();
+//
+//        windowsBasicMediaPlayer.rewindMedia();
 
-        MediaPlayer windowsAdvancedMediaPlayer = new AdvancedMediaPlayer(windowsplatform);
-        MediaPlayer macAdvancedMediaPlayer = new AdvancedMediaPlayer(macplatform);
+//--------------------command----------------------------
+        HomeElectronics ac = new AirConditioner();
+        HomeElectronics lightSystem = new LightSystem();
 
-        MediaPlayer windowsBasicMediaPlayer = new BasicMediaPlayer(windowsplatform);
+        Command acOnCommand = new OnCommand(ac);
+        Command lightOnCommand = new OnCommand(lightSystem);
 
-        macAdvancedMediaPlayer.playMedia("XYZ.mp3");
+        Invoker invoker = new Invoker();
 
-        windowsAdvancedMediaPlayer.rewindMedia();
+        // Adding commands to the invoker
+        invoker.addCommand(acOnCommand);
+        invoker.addCommand(lightOnCommand);
 
-        windowsBasicMediaPlayer.rewindMedia();
+        // Executing single command at index 1
+        System.out.println("---Executing Single Command at Index 1---");
+        invoker.executeSingleCommand(1);
 
-
-
-
+        //executing all commands
+        System.out.println("-----executing all commands ------");
+        invoker.executeCommands();
 
     }
+
+
+
+
 
     //used for proxy example 1.
 //    static void downloadWebsite(DataSource dataSource) {
